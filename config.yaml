@@ -1,0 +1,41 @@
+# Configuration file for Pneumonia Classification Project
+
+# Data Configuration
+data:
+  dataset_name: 'pneumoniamnist'
+  data_dir: './data'
+  batch_size: 128
+  num_workers: 2
+  pin_memory: true
+
+# Model Configuration
+model:
+  name: 'SimpleCNN'
+  input_channels: 1
+  num_classes: 2
+  dropout_rate: 0.2
+
+# Training Configuration
+training:
+  epochs: 5
+  learning_rate: 0.001
+  optimizer: 'adam'
+  use_class_weights: true
+  device: 'auto'  # 'auto', 'cuda', or 'cpu'
+
+# Evaluation Configuration
+evaluation:
+  threshold: 0.10
+  metrics: ['accuracy', 'precision', 'recall', 'f1']
+
+# Paths
+paths:
+  model_save_dir: './models'
+  results_dir: './results'
+  plots_dir: './plots'
+
+# Logging
+logging:
+  level: 'INFO'
+  log_file: './logs/training.log'
+
